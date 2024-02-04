@@ -1,57 +1,5 @@
-gsap.matchMedia().add("(min-width: 992px)", () => {
-  const splitTypes_1 = document.querySelectorAll(".reveal-type.is-1");
-  splitTypes_1.forEach((char, i) => {
-    const text_1 = new SplitType(char, { types: ["chars", "words"] });
 
-    const splitTypes_2 = document.querySelectorAll(".reveal-type.is-2");
-    splitTypes_2.forEach((char, i) => {
-      const text_2 = new SplitType(char, { types: ["chars", "words"] });
 
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".section_h-header",
-          // trigger element - viewport
-          start: "100% 30%",
-          end: "100% -30%",
-          scrub: 1,
-          markers: false,
-        },
-      });
-
-      gsap.set(".h-header_reveal.is-bottom", { opacity: 1 });
-
-      tl.to(text_1.chars, { opacity: 0, stagger: 0.07 });
-      tl.from(text_2.chars, { opacity: 0, stagger: 0.07 }, "<1.5");
-    });
-  });
-});
-
-gsap.matchMedia().add("(max-width: 991px)", () => {
-  // Mobile
-  $(".section_h-header").each(function (index) {
-    let triggerElement = $(this);
-
-    let text_1 = $(".reveal-type.is-1");
-    let text_2 = $(".reveal-type.is-2");
-
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerElement,
-        // trigger element - viewport
-        start: "center center",
-        end: "center center",
-        // play pause resume reset restart complete reverse none
-        toggleActions: "none play none reverse",
-        markers: false,
-      },
-    });
-
-    gsap.set(".h-header_reveal.is-bottom", { opacity: 1 });
-
-    tl.to(text_1, { opacity: 0 });
-    tl.from(text_2, { opacity: 0 }, "<0.4");
-  });
-});
 
 
 
