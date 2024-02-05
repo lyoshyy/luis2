@@ -1,3 +1,43 @@
+gsap.matchMedia().add("(min-width: 992px)", () => {
+  const splitTypes = document.querySelectorAll(".reveal-type");
+  splitTypes.forEach((char, i) => {
+    const text = new SplitType(char, { types: ["chars", "words"] });
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section_h-header",
+        // trigger element - viewport
+        start: "100% 20%",
+        end: "100% -20%",
+        scrub: 1,
+        markers: false,
+      },
+    });
+
+    tl.from(text.chars, { opacity: 0.25, stagger: 0.07 });
+  });
+});
+
+gsap.matchMedia().add("(max-width: 991px)", () => {
+  // Mobile
+  const splitTypes = document.querySelectorAll(".reveal-type");
+  splitTypes.forEach((char, i) => {
+    const text = new SplitType(char, { types: ["chars", "words"] });
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section_h-header",
+        // trigger element - viewport
+        start: "0% 20%",
+        end: "0% -20%",
+        scrub: 1,
+        markers: false,
+      },
+    });
+
+    tl.from(text.chars, { opacity: 0.25, stagger: 0.07 });
+  });
+});
 
 
 
