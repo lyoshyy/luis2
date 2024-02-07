@@ -7,8 +7,8 @@ gsap.matchMedia().add("(min-width: 992px)", () => {
       scrollTrigger: {
         trigger: ".section_h-header",
         // trigger element - viewport
-        start: "100% 20%",
-        end: "100% -20%",
+        start: "0% 20%",
+        end: "0% -20%",
         scrub: 1,
         markers: false,
       },
